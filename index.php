@@ -1,10 +1,12 @@
 <?php
-/*====================================================================+
-|| # Formulario PHP - Desarrollo Web 2016 - Universidad de Valparaíso
-|+====================================================================+
-|| # Copyright © 2016 Miguel González Aravena. All rights reserved.
-|| # https://github.com/MiguelGonzalezAravena/FormularioPHP
-|+====================================================================*/
+/**
+ * @Author: Miguel González Aravena
+ * @Email: miguel.gonzalez.93@gmail.com
+ * @Github: https://github.com/MiguelGonzalezAravena
+ * @Date: 2016-10-12 00:29:40
+ * @Last Modified by: Miguel GonzÃ¡lez Aravena
+ * @Last Modified time: 2016-10-28 01:16:53
+ */
 ?>
 <!DOCTYPE html>
 <html>
@@ -14,15 +16,18 @@
   <meta name="keywords" content="html, bootstrap, php, formulario, desarrollo, web">
   <meta name="author" content="Miguel González Aravena">
   <title>Formulario en PHP</title>
-  <!-- CSS -->
+  <!-- Dependencias CSS -->
   <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 <body>
 <div class="container">
   <h1>Formulario en PHP</h1>
+  <!-- Mensaje de respuesta -->
+  <div id="mensaje" style="display: none"></div>
   <!-- Formulario -->
-  <form enctype="multipart/form-data" method="post" action="enviar.php" accept-charset="UTF-8">
+  <form id="formulario">
     <!-- Hidden -->
     <input type="hidden" name="enviado" value="1">
     <div class="panel panel-default">
@@ -33,32 +38,32 @@
         <!-- Texto -->
         <div class="form-group">
           <b>Nombre</b>
-          <input type="text" class="form-control" name="nombre" placeholder="Ingrese su nombre">
+          <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Ingrese su nombre">
         </div>
         <!-- Email -->
         <div class="form-group">
           <b>Correo electrónico</b>
-          <input type="email" class="form-control" name="correo" placeholder="Ingrese su correo electrónico">
+          <input type="email" class="form-control" name="correo" id="correo" placeholder="Ingrese su correo electrónico">
         </div>
         <!-- Password -->
         <div class="form-group">
           <b>Contraseña</b>
-          <input type="password" class="form-control" name="contrasena" placeholder="Ingrese su contraseña">
+          <input type="password" class="form-control" name="contrasena" id="contrasena" placeholder="Ingrese su contraseña">
         </div>
         <!-- File -->
         <div class="form-group">
           <b>Foto de perfil</b>
-          <input type="file" class="form-control" name="foto">
+          <input type="file" class="form-control" name="foto" id="foto">
         </div>
         <!-- Textarea -->
         <div class="form-group">
           <b>Descripción</b><br />
-          <textarea class="form-control" name="descripcion" placeholder="Ingrese una descripción"></textarea>
+          <textarea class="form-control" name="descripcion" id="descripcion" placeholder="Ingrese una descripción"></textarea>
         </div>
         <!-- Select -->
         <div class="form-group">
           <b>Año de ingreso</b><br />
-          <select name="anio" class="form-control">
+          <select name="anio" id="anio" class="form-control">
             <option value="">Seleccione un año</option>
             <option value="2009">2009</option>
             <option value="2010">2010</option>
@@ -71,16 +76,16 @@
         <!-- Radio -->
         <div class="form-group">
           <b>Sexo</b><br />
-          <input type="radio" name="sexo" value="m"> Masculino<br />
-          <input type="radio" name="sexo" value="f"> Femenino<br />
+          <input type="radio" name="sexo" id="sexo" value="m"> Masculino<br />
+          <input type="radio" name="sexo" id="sexo" value="f"> Femenino<br />
         </div>
         <!-- Checkbox -->
         <div class="form-group">
           <b>Términos y condiciones</b><br />
-          <input type="checkbox" name="terminos" value="1"> Acepto y he leído los términos y condiciones.<br />
+          <input type="checkbox" name="terminos" id="terminos" value="1"> Acepto y he leído los términos y condiciones.<br />
         </div>
         <div class="form-group">
-          <input type="checkbox" name="contenido" value="1"> <b>¿Ver la estructura del contenido que se envió?</b>
+          <input type="checkbox" name="contenido" id="contenido" value="1"> <b>¿Ver la estructura del contenido que se envió?</b>
         </div>
       </div>
       <div class="panel-footer">
@@ -106,5 +111,9 @@
     </div>
   </footer>
 </div>
+<!-- Dependencias JS -->
+<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="bower_components/jquery-validation/dist/jquery.validate.js"></script>
+<script type="text/javascript" src="assets/js/codes.js"></script>
 </body>
 </html>
